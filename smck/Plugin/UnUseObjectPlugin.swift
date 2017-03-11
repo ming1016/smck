@@ -17,10 +17,10 @@ class UnUseObjectPlugin {
         _ = ob.subscribe(onNext: { result in
             if result is Dictionary<String, Any> {
                 let dic = result as! Dictionary<String, Any>
-                if dic.keys.contains("currentParsingFileDes") {
+                if dic["currentParsingFileDes"] is String {
                     Console.outPrint("\(dic["currentParsingFileDes"])")
                 }
-                if dic.keys.contains("firstRoundAFile") {
+                if dic["firstRoundAFile"] is File {
                     let aFile = dic["firstRoundAFile"] as! File
                     Console.outPrint("\(aFile.name)")
                 }
@@ -46,7 +46,6 @@ class UnUseObjectPlugin {
                     continue
                 }
             }
-//            Console.outPrint("\(allUnUsedObjects)")
         })
     }
 }

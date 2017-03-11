@@ -19,27 +19,27 @@ class UnUseMethodPlugin {
             
             if result is Dictionary<String, Any> {
                 let dic = result as! Dictionary<String, Any>
-                if dic.keys.contains("filePaths") {
+                if dic["filePaths"] is String {
 //                    self.console.outPrint("\(dic["filePaths"])")
                 }
-                if dic.keys.contains("currentParsingFileDes") {
+                if dic["currentParsingFileDes"] is String {
                     Console.outPrint("\(dic["currentParsingFileDes"])")
                 }
-                if dic.keys.contains("firstRoundAFile") {
+                if dic["firstRoundAFile"] is File {
                     let aFile = dic["firstRoundAFile"] as! File
                     Console.outPrint("\(aFile.name)")
                 }
                 
-                if dic.keys.contains("methodsUsed") {
+                if dic["methodsUsed"] is [String] {
                     self.methodsUsed = dic["methodsUsed"] as! [String]
                 }
-                if dic.keys.contains("methodsMFile") {
+                if dic["methodsMFile"] is [String] {
                     self.methodsMFile = dic["methodsMFile"] as! [String]
                 }
-                if dic.keys.contains("methodsDefinedInHFile") {
+                if dic["methodsDefinedInHFile"] is [Method] {
                     self.methodsDefinedInHFile = dic["methodsDefinedInHFile"] as! [Method]
                 }
-                if dic.keys.contains("methodsDefinedInMFile") {
+                if dic["methodsDefinedInMFile"] is [Method] {
                     self.methodsDefinedInMFile = dic["methodsDefinedInMFile"] as! [Method]
                 }
                 
