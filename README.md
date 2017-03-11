@@ -11,6 +11,7 @@
 
 ## 是怎么做到简单编写就能够添加功能呢？
 因为代码分析的过程会通过一系列已经编写好的 parser 来完成，parser 会完成 token 的分析和上下文还有工程全局分析输出所有节点的数据信息，根据这些完整的信息和已经定义好的一系列具有完整包含关系的结构体就能够进行各种各样功能的定制化了。下面是一些 parser 和功能介绍：
+
 ![parser](https://github.com/ming1016/smck/blob/master/README/5.png?raw=true)
 * ParsingMethod.swift ：会返回 Method 结构体，包含了方法名，各个参数，方法内使用过的方法，方法内定义的临时变量等信息。
 * ParsingMethodContent.swift ：会分析方法内的 token 根据语法形成数组结构进行处理。这里需要处理的东西很多，目前还在根据计划添加更多的数据输出。
@@ -34,7 +35,7 @@
 ./smck -o /User/your_project_path
 ```
 输出如下
-![命令行参数](https://github.com/ming1016/smck/blob/master/README/2.png?raw=true)
+![执行效果](https://github.com/ming1016/smck/blob/master/README/4.png?raw=true)
 ## 如何编写自己的检查功能？
 由于工程检查规则非常多样化，所以需要编写一些 Plugin，后面我会逐渐抽出一些具有共性的放上来，目前在 Plugin 目录下我放了两个例子，在例子里可以看出来怎么通过订阅 Parser 输出的不同节点的不同数据来进行不同的检查。在控制台管理相关的 Checker 类里关联 Parser 和 Plugin 的代码由于使用了 RxSwift 也变得非常简洁明了，如下：
 ```swift
@@ -45,6 +46,5 @@ func doO(path:String) {
     UnUseObjectPlugin().plug(ob: ParsingEntire.parsing(path: path))
 }
 ```
-
 
 
