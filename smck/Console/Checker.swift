@@ -1,4 +1,4 @@
-//
+
 //  Gram.swift
 //  SMCheckProjectCL
 //
@@ -63,11 +63,24 @@ class Checker {
     
     //无用函数
     func doM(path:String) {
+        
         guard path.characters.count > 0 else {
             return
         }
         UnUseMethodPlugin().plug(ob: ParsingEntire.parsing(path: path))
+        
+//        let tks = HTMLLexer(input: "<html><body background=\"#dkdkdds\" url=\"http://sldkfjadskfj.comds.ccc/sdkfjsd/dskfja.html\">kkkk<a><img scr=\"http://ww.ss.c/ss.jpg\"/></a>safd<div>safkasdfj</div><p><ll>safsdaf</ll>3333</p></body></html>").lex()
+//        let tks = HTMLLexer(input: "<p>111</p><a>222</a>").lex()
+//        let file = try! HTMLParser(tokens: tks).parseFile()
+//        print("\(file)")
+        
+        //SMLang
+//        let tks = SMLangLexer(input: "extern sqrt(n);\ndef foo(n) (n * sqrt(n * 200) + 57 * n % 2);").lex()
+//        let file = try! SMLangParser(tokens: tks).parseFile()
+//        print("\(file)")
+        
     }
+    
     
     //列出文件下
     func doF(path:String) {

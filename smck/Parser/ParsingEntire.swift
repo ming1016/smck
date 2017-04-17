@@ -47,8 +47,6 @@ class ParsingEntire {
             let count = filePaths.count
             for filePathString in filePaths {
                 
-                
-                
                 //读取文件内容
                 let fileUrl = URL(string: filePathString)
                 
