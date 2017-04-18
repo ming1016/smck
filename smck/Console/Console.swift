@@ -18,6 +18,7 @@ enum OptionType: String {
     case seekFile = "s"       //列出文件夹下的所有文件
     case unUseMethods = "m"   //列出文件夹下没有用到的函数
     case unUseObject = "o"    //列出无用类
+    case h5ToSwift = "h2s"    //将h5转swift
     case help = "h"           //查看帮助
     case quit = "q"           //退出互动操作
     case unknown
@@ -30,6 +31,8 @@ enum OptionType: String {
             self = .unUseMethods
         case "o":
             self = .unUseObject
+        case "h2s":
+            self = .h5ToSwift
         case "h":
             self = .help
         case "q":

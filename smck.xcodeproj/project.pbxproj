@@ -10,6 +10,8 @@
 		0A176FAF1EA33CC500E4F960 /* HTMLAST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176FAE1EA33CC500E4F960 /* HTMLAST.swift */; };
 		0A176FB11EA33E3600E4F960 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176FB01EA33E3600E4F960 /* HTMLParser.swift */; };
 		0A1B7BCA1EA4775700F284A6 /* H5Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B7BC91EA4775700F284A6 /* H5Lexer.swift */; };
+		0A1B7BCC1EA4B24E00F284A6 /* H5AST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B7BCB1EA4B24E00F284A6 /* H5AST.swift */; };
+		0A1B7BCE1EA4B2B700F284A6 /* H5Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B7BCD1EA4B2B700F284A6 /* H5Parser.swift */; };
 		0A1BDE581E9FB4D2009A939E /* SMLangAST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BDE571E9FB4D2009A939E /* SMLangAST.swift */; };
 		0A1C4D0C1EA25DE800C40427 /* analyzeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1C4D0B1EA25DE800C40427 /* analyzeExtension.swift */; };
 		0A20FCE81E7376570070A48F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A20FCE71E7376570070A48F /* main.swift */; };
@@ -203,6 +205,8 @@
 		0A176FAE1EA33CC500E4F960 /* HTMLAST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLAST.swift; sourceTree = "<group>"; };
 		0A176FB01EA33E3600E4F960 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		0A1B7BC91EA4775700F284A6 /* H5Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5Lexer.swift; sourceTree = "<group>"; };
+		0A1B7BCB1EA4B24E00F284A6 /* H5AST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5AST.swift; sourceTree = "<group>"; };
+		0A1B7BCD1EA4B2B700F284A6 /* H5Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5Parser.swift; sourceTree = "<group>"; };
 		0A1BDE571E9FB4D2009A939E /* SMLangAST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLangAST.swift; sourceTree = "<group>"; };
 		0A1C4D0B1EA25DE800C40427 /* analyzeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = analyzeExtension.swift; sourceTree = "<group>"; };
 		0A20FCE41E7376570070A48F /* smck */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = smck; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -396,6 +400,8 @@
 			isa = PBXGroup;
 			children = (
 				0A1B7BC91EA4775700F284A6 /* H5Lexer.swift */,
+				0A1B7BCB1EA4B24E00F284A6 /* H5AST.swift */,
+				0A1B7BCD1EA4B2B700F284A6 /* H5Parser.swift */,
 			);
 			name = H5;
 			sourceTree = "<group>";
@@ -843,6 +849,7 @@
 				0A20FE141E73777E0070A48F /* VirtualTimeScheduler.swift in Sources */,
 				0A20FD921E73777D0070A48F /* Buffer.swift in Sources */,
 				0A20FD9B1E73777D0070A48F /* ConcurrentMainScheduler.swift in Sources */,
+				0A1B7BCE1EA4B2B700F284A6 /* H5Parser.swift in Sources */,
 				0A20FDCD1E73777E0070A48F /* Observable+Single.swift in Sources */,
 				0A20FDA31E73777D0070A48F /* Delay.swift in Sources */,
 				0A20FDBC1E73777E0070A48F /* InvocableType.swift in Sources */,
@@ -868,6 +875,7 @@
 				0A20FE2F1E7378490070A48F /* ParsingInterface.swift in Sources */,
 				0A20FE041E73777E0070A48F /* SynchronizedDisposeType.swift in Sources */,
 				0A176FAF1EA33CC500E4F960 /* HTMLAST.swift in Sources */,
+				0A1B7BCC1EA4B24E00F284A6 /* H5AST.swift in Sources */,
 				0A1C4D0C1EA25DE800C40427 /* analyzeExtension.swift in Sources */,
 				0A20FE321E7378490070A48F /* ParsingObject.swift in Sources */,
 				0A20FD8A1E73777D0070A48F /* AnonymousObserver.swift in Sources */,
