@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0A176FAF1EA33CC500E4F960 /* HTMLAST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176FAE1EA33CC500E4F960 /* HTMLAST.swift */; };
 		0A176FB11EA33E3600E4F960 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176FB01EA33E3600E4F960 /* HTMLParser.swift */; };
+		0A1A24D51EA5EFA10051C13A /* H5Sb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A24D41EA5EFA10051C13A /* H5Sb.swift */; };
+		0A1A24F01EA65D620051C13A /* CSSSb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A24EF1EA65D620051C13A /* CSSSb.swift */; };
+		0A1AF86D1EA7087900F83176 /* CSSLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1AF86C1EA7087900F83176 /* CSSLexer.swift */; };
+		0A1AF86F1EA7088B00F83176 /* CSSAST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1AF86E1EA7088B00F83176 /* CSSAST.swift */; };
+		0A1AF8711EA708BD00F83176 /* CSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1AF8701EA708BD00F83176 /* CSSParser.swift */; };
 		0A1B7BCA1EA4775700F284A6 /* H5Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B7BC91EA4775700F284A6 /* H5Lexer.swift */; };
 		0A1B7BCC1EA4B24E00F284A6 /* H5AST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B7BCB1EA4B24E00F284A6 /* H5AST.swift */; };
 		0A1B7BCE1EA4B2B700F284A6 /* H5Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B7BCD1EA4B2B700F284A6 /* H5Parser.swift */; };
@@ -204,6 +209,11 @@
 /* Begin PBXFileReference section */
 		0A176FAE1EA33CC500E4F960 /* HTMLAST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLAST.swift; sourceTree = "<group>"; };
 		0A176FB01EA33E3600E4F960 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+		0A1A24D41EA5EFA10051C13A /* H5Sb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5Sb.swift; sourceTree = "<group>"; };
+		0A1A24EF1EA65D620051C13A /* CSSSb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSSSb.swift; sourceTree = "<group>"; };
+		0A1AF86C1EA7087900F83176 /* CSSLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSSLexer.swift; sourceTree = "<group>"; };
+		0A1AF86E1EA7088B00F83176 /* CSSAST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSSAST.swift; sourceTree = "<group>"; };
+		0A1AF8701EA708BD00F83176 /* CSSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSSParser.swift; sourceTree = "<group>"; };
 		0A1B7BC91EA4775700F284A6 /* H5Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5Lexer.swift; sourceTree = "<group>"; };
 		0A1B7BCB1EA4B24E00F284A6 /* H5AST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5AST.swift; sourceTree = "<group>"; };
 		0A1B7BCD1EA4B2B700F284A6 /* H5Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5Parser.swift; sourceTree = "<group>"; };
@@ -402,6 +412,11 @@
 				0A1B7BC91EA4775700F284A6 /* H5Lexer.swift */,
 				0A1B7BCB1EA4B24E00F284A6 /* H5AST.swift */,
 				0A1B7BCD1EA4B2B700F284A6 /* H5Parser.swift */,
+				0A1A24D41EA5EFA10051C13A /* H5Sb.swift */,
+				0A1A24EF1EA65D620051C13A /* CSSSb.swift */,
+				0A1AF86C1EA7087900F83176 /* CSSLexer.swift */,
+				0A1AF86E1EA7088B00F83176 /* CSSAST.swift */,
+				0A1AF8701EA708BD00F83176 /* CSSParser.swift */,
 			);
 			name = H5;
 			sourceTree = "<group>";
@@ -741,6 +756,7 @@
 				0A20FE011E73777E0070A48F /* SubscriptionDisposable.swift in Sources */,
 				0A20FDCB1E73777E0070A48F /* Observable+Debug.swift in Sources */,
 				0A20FDB21E73777D0070A48F /* Filter.swift in Sources */,
+				0A1AF8711EA708BD00F83176 /* CSSParser.swift in Sources */,
 				0A20FE331E7378490070A48F /* ParsingFirstRoundOneFile.swift in Sources */,
 				0A20FD961E73777D0070A48F /* CombineLatest+arity.swift in Sources */,
 				0A20FDB41E73777D0070A48F /* GroupBy.swift in Sources */,
@@ -812,6 +828,7 @@
 				0A1BDE581E9FB4D2009A939E /* SMLangAST.swift in Sources */,
 				0A20FE161E73777E0070A48F /* WithLatestFrom.swift in Sources */,
 				0A20FE121E73777E0070A48F /* Variable.swift in Sources */,
+				0A1A24F01EA65D620051C13A /* CSSSb.swift in Sources */,
 				0A20FDF61E73777E0070A48F /* ShareReplay1WhileConnected.swift in Sources */,
 				0A20FDC11E73777E0070A48F /* Map.swift in Sources */,
 				0A20FDCF1E73777E0070A48F /* Observable+Time.swift in Sources */,
@@ -869,6 +886,7 @@
 				0A20FD851E73777D0070A48F /* AddRef.swift in Sources */,
 				0A20FDDB1E73777E0070A48F /* PriorityQueue.swift in Sources */,
 				0A20FE181E73777E0070A48F /* Zip+arity.swift in Sources */,
+				0A1AF86D1EA7087900F83176 /* CSSLexer.swift in Sources */,
 				0A20FDC21E73777E0070A48F /* Merge.swift in Sources */,
 				0A20FD971E73777D0070A48F /* CombineLatest+Collection.swift in Sources */,
 				0A20FD8B1E73777D0070A48F /* AnyObserver.swift in Sources */,
@@ -888,6 +906,7 @@
 				0A20FDCC1E73777E0070A48F /* Observable+Multiple.swift in Sources */,
 				0A20FDBF1E73777E0070A48F /* LockOwnerType.swift in Sources */,
 				0A20FE081E73777E0070A48F /* TailRecursiveSink.swift in Sources */,
+				0A1AF86F1EA7088B00F83176 /* CSSAST.swift in Sources */,
 				0A20FDAF1E73777D0070A48F /* Error.swift in Sources */,
 				0A20FDD01E73777E0070A48F /* ObservableConvertibleType.swift in Sources */,
 				0A20FDA11E73777D0070A48F /* DefaultIfEmpty.swift in Sources */,
@@ -899,6 +918,7 @@
 				0A20FDEB1E73777E0070A48F /* Sample.swift in Sources */,
 				0A20FDB61E73777D0070A48F /* HistoricalScheduler.swift in Sources */,
 				0A20FDDF1E73777E0070A48F /* Range.swift in Sources */,
+				0A1A24D51EA5EFA10051C13A /* H5Sb.swift in Sources */,
 				0A20FDAC1E73777D0070A48F /* Do.swift in Sources */,
 				0A20FDC01E73777E0070A48F /* MainScheduler.swift in Sources */,
 				0A20FE0B1E73777E0070A48F /* TakeUntil.swift in Sources */,

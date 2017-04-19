@@ -58,7 +58,11 @@ class Checker {
     
     //h5 to swift
     func doH2S(path:String) {
-        let tks = H5Lexer(input: "<html><body background=\"#dkdkdds\" url=\"http://sldkfjadskfj.comds.ccc/sdkfjsd/dskfja.html\">kkkk<a><img scr=\"http://ww.ss.c/ss.jpg\"/></a>safd<div>safkasdfj</div><p><ll>safsdaf</ll>3333</p></body></html>").lex()
+        let pathUrl = URL(string: "file://".appending(path))
+        let content = try! String(contentsOf: pathUrl!, encoding: String.Encoding.utf8)
+//        print("\(content)")
+        
+        let tks = H5Lexer(input: content).lex()
         let file = try! H5Parser(tokens: tks).parseFile()
         
         print("\(file)")
@@ -89,10 +93,6 @@ class Checker {
             return
         }
         UnUseMethodPlugin().plug(ob: ParsingEntire.parsing(path: path))
-        
-        
-        
-
         
     }
     
