@@ -12,3 +12,11 @@ struct CSSSelector {
     var selectorName:String
     var propertys:[String:String]
 }
+
+class CSSFile {
+    private(set) var selectors = [String:CSSSelector]()
+    
+    func addSelector(_ selector:CSSSelector) {
+        selectors["\(selector.selectorName)"] = selector
+    }
+}

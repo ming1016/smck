@@ -43,7 +43,7 @@ class H5Parser {
         
         var currentAttribuiteName = ""
         
-        var psStep = 0; //0：初始，1：标签名，2：标签名取完，3：获取属性值，4：斜线完结，5：标签完结，6：整个标签完成
+        var psStep = 0 //0：初始，1：标签名，2：标签名取完，3：获取属性值，4：斜线完结，5：标签完结，6：整个标签完成
 
         while let tk = currentToken {
             if psStep == 6 {
@@ -150,13 +150,5 @@ class H5Parser {
     func consumeToken(n: Int = 1) {
         index += n
     }
-    func consume(_ token: String) throws {
-        guard let tk = currentToken else {
-            throw H5ParseError.unexpectedEOF
-        }
-        guard token == tk else {
-            throw H5ParseError.unexpectedToken(token)
-        }
-        consumeToken()
-    }
+    
 }

@@ -12,7 +12,7 @@ import Foundation
 class H5Lexer {
     let input: String
     var index: String.Index
-    var cssSelectors = [String:CSSSelector]()
+    var cssFile: CSSFile
     
     init(input: String) {
         //清理
@@ -34,15 +34,18 @@ class H5Lexer {
         var cssSelecorsStr = ""
         for re in matches {
             cssSelecorsStr.append(NSString(string: newStr).substring(with: re.rangeAt(1)))
-            print("\(cssSelecorsStr)")
+            //print("\(cssSelecorsStr)")
         }
         
         //提取完再将其替换成空
         newStr = cssRegex.stringByReplacingMatches(in: newStr, options: NSRegularExpression.MatchingOptions(rawValue:0), range: NSMakeRange(0, newStr.characters.count), withTemplate: H5Sb.space)
-        print("\(newStr)")
+        //print("\(newStr)")
         
         //将 css 的 selector 添加到 cssSelectors 里做好映射
+        let cssTks = CSSLexer(input: cssSelecorsStr).lex()
+        //print("\(cssTks)")
         
+        self.cssFile = try! CSSParser(tokens: cssTks).parseFile()
         self.input = newStr
         self.index = newStr.startIndex
     }

@@ -17,6 +17,7 @@ struct H5Tag {
 
 class H5File {
     private(set) var tags = [H5Tag]()
+    var cssFile = CSSFile()
     
     func addTag(_ tag:H5Tag) {
         tags.append(tag)
