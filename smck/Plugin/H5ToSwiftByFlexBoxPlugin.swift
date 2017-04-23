@@ -16,6 +16,67 @@ class H5ToSwiftByFlexBoxPlugin {
     let H5file: H5File
     var cssFile: CSSFile
     
+    let lyFloatKeyMap = [
+        "width":"width",
+        "height":"height",
+        "margin":"margin",
+        "padding":"padding",
+        "flex-grow":"flexGrow",
+        "flex-shrink":"flexShrink",
+        "flex-basis":"flexBasis"
+    ]
+    let lyEnumKeyMap = [
+        "flex-direction":"flexDirection",
+        "justify-content":"justifyContent",
+        "align-content":"alignContent",
+        "align-items":"alignItems",
+        "align-self":"alignSelf",
+        "position":"position",
+        "flex-wrap":"flexWrap",
+        "overflow":"overflow",
+        "display":"display"
+    ]
+    let lyEnumValueMap = [
+        //flex-direction
+        "column":"column",
+        "columnReverse":"columnReverse",
+        "row":"row",
+        "rowReverse":"rowReverse",
+        //justify-content
+        "flex-start":"flexStart",
+        "center":"center",
+        "flex-end":"flexEnd",
+        "space-between":"spaceBetween",
+        "space-around":"spaceAround",
+        //align-content,align-items,align-self
+        "auto":"auto",
+        "stretch":"stretch",
+        "baseline":"base",
+        //position
+        "relative":"relative",
+        "absolute":"absolute",
+        //flex-wrap
+        "no-wrap":"noWrap",
+        "wrap":"wrap",
+        "wrap-reverse":"wrapReverse",
+        //overflow
+        "visible":"visible",
+        "hidden":"hidden",
+        "scroll":"scroll",
+        //display
+        "flex":"flex",
+        "none":"none"
+    ]
+    //propertyMap
+    let ptKeyMap = [
+        "background-color":"backgroundColor"
+    ]
+    let ptValueMap = [
+        "black":".black",
+        "red":".red",
+        "white":".white"
+    ]
+    
     init(path:String) {
         self.path = path
         self.pathUrl = URL(string: "file://".appending(path))!
@@ -27,7 +88,9 @@ class H5ToSwiftByFlexBoxPlugin {
     }
     
     func doSwitch() {
-        
+        guard let htmlSubTags = self.H5file.tags.first?.subs else {
+            return
+        }
         
         var swiftStr = ""
         swiftStr.append("import UIKit\n")
@@ -37,112 +100,129 @@ class H5ToSwiftByFlexBoxPlugin {
         var className = ""
         
         var didLoadStr = ""
-        for tag in self.H5file.tags {
-            if tag.name == "title" {
-                className = tag.value
+        for tag in htmlSubTags {
+            if tag.name == "head" {
+                for subTag in tag.subs {
+                    if subTag.name == "title" {
+                        className = (subTag.subs.first?.value)!
+                    }
+                }
             } else if tag.name == "body" {
-                didLoadStr.append("let body = self.view!")
-                didLoadStr.append(viewTagToSwift(tag: tag))
-            } else {
-                didLoadStr.append(viewTagToSwift(tag: tag))
+                didLoadStr.append("let body = self.view!\n")
+                didLoadStr.append(viewTagToSwift(tag: tag, superTag: self.H5file.tags.first!, superSName: "body"))
             }
         }
         
         swiftStr.append("final class \(className): UIViewController {\n")
         swiftStr.append(propertys)
-        swiftStr.append("override func viewDidLoad() {\n")
+        swiftStr.append("\noverride func viewDidLoad() {\n")
         swiftStr.append(didLoadStr)
-        swiftStr.append("}")
+        swiftStr.append("body.yoga.applyLayout(preservingOrigin: false)\n")
+        swiftStr.append("}\n")
+        swiftStr.append("}\n")
+        
+        do {
+            try swiftStr.write(to: URL(string: "file://\(path).swift")!, atomically: false, encoding: String.Encoding.utf8)
+        } catch {
+            
+        }
+        
     }
     
-    func viewTagToSwift(tag:H5Tag) -> String {
+    func viewTagToSwift(tag:H5Tag, superTag:H5Tag, superSName:String) -> String {
         index += 1
         var reStr = ""
-        var sName = tag.name + "\(index)"
+        var sName = ""
+        if tag.name == "body" {
+            sName = "body"
+        } else {
+            sName = tag.name + "\(index)"
+        }
+        
         
         //初始
         if (tag.attributes["id"] != nil) {
-            sName = tag.attributes["id"]! + "\(index)"
+            sName = tag.attributes["id"]!
             propertys.append("private let \(sName) : UIView = UIView(frame: .zero)\n")
         } else if tag.name != "body" {
-            reStr.append("let \(sName) = UIView(frame: .zero)")
+            reStr.append("let \(sName) = UIView(frame: .zero)\n")
         }
         
         
         var rePyStr = "" //属性
         var reLyStr = "" //layout
         let cssKeys = self.cssFile.selectors.keys
+        //
         if cssKeys.contains(tag.name) {
-            let lyFloatKeyMap = [
-                "width":"width",
-                "height":"height",
-                "margin":"margin",
-                "padding":"padding",
-                "flex-grow":"flexGrow",
-                "flex-shrink":"flexShrink",
-                "flex-basis":"flexBasis"
-            ]
-            let lyEnumKeyMap = [
-                "flex-direction":"flexDirection",
-                "justify-content":"justifyContent",
-                "align-content":"alignContent",
-                "align-items":"alignItems",
-                "align-self":"alignSelf",
-                "position":"position",
-                "flex-wrap":"flexWrap",
-                "overflow":"overflow",
-                "display":"display"
-            ]
-            let lyEnumValueMap = [
-                //flex-direction
-                "column":"column",
-                "columnReverse":"columnReverse",
-                "row":"row",
-                "rowReverse":"rowReverse",
-                //justify-content
-                "flex-start":"flexStart",
-                "center":"center",
-                "flex-end":"flexEnd",
-                "space-between":"spaceBetween",
-                "space-around":"spaceAround",
-                //align-content,align-items,align-self
-                "auto":"auto",
-                "flex-start":"flexStart",
-                "center":"center",
-                "flex-end":"flexEnd",
-                "stretch":"stretch",
-                "baseline":"base",
-                "space-between":"spaceBetween",
-                "space-around":"spaceAround",
-                //position
-                "relative":"relative",
-                "absolute":"absolute",
-                //flex-wrap
-                "no-wrap":"noWrap",
-                "wrap":"wrap",
-                "wrap-reverse":"wrapReverse",
-                //overflow
-                "visible":"visible",
-                "hidden":"hidden"
-            ]
-            
-            for (key,value) in (self.cssFile.selectors[tag.name]?.propertys)! {
-                if lyFloatKeyMap.keys.contains(key) {
-                    reLyStr.append("layout.\(lyFloatKeyMap[key]) = \(cutNumberMark(str: value))")
-                }
-                
-                
+            let pt = self.cssFile.selectors[tag.name]?.propertys
+            reLyStr.append(cssLayoutToSwift(csspt: pt!, sName: sName))
+            rePyStr.append(cssPropertyToSwift(csspt: pt!, sName: sName))
+        }
+        
+        if tag.attributes.keys.contains("id") {
+            if cssKeys.contains("#\(tag.attributes["id"]!)") {
+                let idPt = self.cssFile.selectors["#\(tag.attributes["id"]!)"]?.propertys
+                reLyStr.append(cssLayoutToSwift(csspt: idPt!, sName: sName))
+                rePyStr.append(cssPropertyToSwift(csspt: idPt!, sName: sName))
             }
         }
         
+        if tag.attributes.keys.contains("class") {
+            if cssKeys.contains(".\(tag.attributes["class"]!)") {
+                let classPt = self.cssFile.selectors[".\(tag.attributes["class"]!)"]?.propertys
+                reLyStr.append(cssLayoutToSwift(csspt: classPt!, sName: sName))
+                rePyStr.append(cssPropertyToSwift(csspt: classPt!, sName: sName))
+            }
+        }
         
+        //组装的地方
+        reStr.append(rePyStr)
+        reStr.append("\(sName).configureLayout { (layout) in\n")
+        reStr.append("layout.isEnabled = true\n")
+        reStr.append(reLyStr)
+        reStr.append("}\n")
+        if tag.name != "body" {
+            reStr.append("\(superSName).addSubview(\(sName))\n\n")
+        } else {
+            reStr.append("\n")
+        }
         
         if tag.subs.count > 0 {
             for subTag in tag.subs {
-                reStr.append(viewTagToSwift(tag: subTag))
+                if subTag.name.characters.count > 0 {
+                    reStr.append(viewTagToSwift(tag: subTag, superTag: tag, superSName: sName))
+                }
             }
         }
         
+        return reStr
+    }
+    
+    func cssPropertyToSwift(csspt:[String:String], sName:String) -> String {
+        var reStr = ""
+        for (key, value) in csspt {
+            if ptKeyMap.keys.contains(key) {
+                reStr.append("\(sName).\(ptKeyMap[key]!) = \(ptValueMap[value]!)\n")
+            }
+        }
+        return reStr
+    }
+    
+    func cssLayoutToSwift(csspt:[String:String], sName:String) -> String {
+        var reStr = ""
+        for (key, value) in (csspt) {
+            if lyFloatKeyMap.keys.contains(key) {
+                reStr.append("layout.\(lyFloatKeyMap[key]!) = \(cutNumberMark(str: value))\n")
+            }
+            if lyEnumKeyMap.keys.contains(key) {
+                if key == "display" && value == "flex" {
+                    //默认都加这里就不多添加了
+                } else {
+                    reStr.append("layout.\(lyEnumKeyMap[key]!) = .\(lyEnumValueMap[value]!)\n")
+                }
+            }
+            
+        }
         return reStr
     }
     
@@ -152,6 +232,8 @@ class H5ToSwiftByFlexBoxPlugin {
         re = re.replacingOccurrences(of: "px", with: "")
         return re
     }
+    
+    
     
     
 }

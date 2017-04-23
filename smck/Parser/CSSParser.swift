@@ -59,6 +59,7 @@ class CSSParser {
             }
             
             if psStep == 1 {
+                currentAttributeName = ""
                 if tk == "}" {
                     consumeToken()
                     break

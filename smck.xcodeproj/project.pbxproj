@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A176FAF1EA33CC500E4F960 /* HTMLAST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176FAE1EA33CC500E4F960 /* HTMLAST.swift */; };
-		0A176FB11EA33E3600E4F960 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176FB01EA33E3600E4F960 /* HTMLParser.swift */; };
 		0A1A24D51EA5EFA10051C13A /* H5Sb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A24D41EA5EFA10051C13A /* H5Sb.swift */; };
 		0A1A24F01EA65D620051C13A /* CSSSb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A24EF1EA65D620051C13A /* CSSSb.swift */; };
 		0A1A46311EA8C3F2008AA951 /* H5ToSwiftByFlexBoxPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A46301EA8C3F2008AA951 /* H5ToSwiftByFlexBoxPlugin.swift */; };
@@ -192,7 +190,6 @@
 		0A20FE451E73796B0070A48F /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A20FE431E73796B0070A48F /* Checker.swift */; };
 		0A21E54D1EA0C54400C1F53D /* SMLangParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21E54C1EA0C54400C1F53D /* SMLangParser.swift */; };
 		0A22FE0E1E9D01C4003B56B9 /* SMLangLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A22FE0D1E9D01C4003B56B9 /* SMLangLexer.swift */; };
-		0A5A45E11EA1FDFF00229CE9 /* HTMLLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A45E01EA1FDFF00229CE9 /* HTMLLexer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -208,8 +205,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A176FAE1EA33CC500E4F960 /* HTMLAST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLAST.swift; sourceTree = "<group>"; };
-		0A176FB01EA33E3600E4F960 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		0A1A24D41EA5EFA10051C13A /* H5Sb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5Sb.swift; sourceTree = "<group>"; };
 		0A1A24EF1EA65D620051C13A /* CSSSb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSSSb.swift; sourceTree = "<group>"; };
 		0A1A46301EA8C3F2008AA951 /* H5ToSwiftByFlexBoxPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5ToSwiftByFlexBoxPlugin.swift; sourceTree = "<group>"; };
@@ -394,7 +389,6 @@
 		0A20FE431E73796B0070A48F /* Checker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		0A21E54C1EA0C54400C1F53D /* SMLangParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLangParser.swift; sourceTree = "<group>"; };
 		0A22FE0D1E9D01C4003B56B9 /* SMLangLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLangLexer.swift; sourceTree = "<group>"; };
-		0A5A45E01EA1FDFF00229CE9 /* HTMLLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLLexer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -678,7 +672,6 @@
 			children = (
 				0A1C1FCE1EAA3F0F00CD994A /* OC */,
 				0A1B7BC81EA4774500F284A6 /* H5 */,
-				0A5A45DF1EA1FDD000229CE9 /* HTML */,
 				0A5A45DE1EA1FDC600229CE9 /* SMLang */,
 				0A1C4D0B1EA25DE800C40427 /* analyzeExtension.swift */,
 			);
@@ -693,16 +686,6 @@
 				0A21E54C1EA0C54400C1F53D /* SMLangParser.swift */,
 			);
 			name = SMLang;
-			sourceTree = "<group>";
-		};
-		0A5A45DF1EA1FDD000229CE9 /* HTML */ = {
-			isa = PBXGroup;
-			children = (
-				0A5A45E01EA1FDFF00229CE9 /* HTMLLexer.swift */,
-				0A176FAE1EA33CC500E4F960 /* HTMLAST.swift */,
-				0A176FB01EA33E3600E4F960 /* HTMLParser.swift */,
-			);
-			name = HTML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -808,7 +791,6 @@
 				0A20FE291E7378490070A48F /* ParsingBase.swift in Sources */,
 				0A20FDC51E73777E0070A48F /* NopDisposable.swift in Sources */,
 				0A20FE031E73777E0070A48F /* SwitchIfEmpty.swift in Sources */,
-				0A176FB11EA33E3600E4F960 /* HTMLParser.swift in Sources */,
 				0A20FE2C1E7378490070A48F /* ParsingMacro.swift in Sources */,
 				0A1A46311EA8C3F2008AA951 /* H5ToSwiftByFlexBoxPlugin.swift in Sources */,
 				0A20FD9F1E73777D0070A48F /* Debounce.swift in Sources */,
@@ -860,7 +842,6 @@
 				0A20FD911E73777D0070A48F /* BooleanDisposable.swift in Sources */,
 				0A20FDE91E73777E0070A48F /* Rx.swift in Sources */,
 				0A20FDE51E73777E0070A48F /* RefCountDisposable.swift in Sources */,
-				0A5A45E11EA1FDFF00229CE9 /* HTMLLexer.swift in Sources */,
 				0A20FE071E73777E0070A48F /* SynchronizedUnsubscribeType.swift in Sources */,
 				0A20FDA01E73777D0070A48F /* Debug.swift in Sources */,
 				0A20FDD51E73777E0070A48F /* ObserverBase.swift in Sources */,
@@ -904,7 +885,6 @@
 				0A20FD8B1E73777D0070A48F /* AnyObserver.swift in Sources */,
 				0A20FE2F1E7378490070A48F /* ParsingInterface.swift in Sources */,
 				0A20FE041E73777E0070A48F /* SynchronizedDisposeType.swift in Sources */,
-				0A176FAF1EA33CC500E4F960 /* HTMLAST.swift in Sources */,
 				0A1B7BCC1EA4B24E00F284A6 /* H5AST.swift in Sources */,
 				0A1C4D0C1EA25DE800C40427 /* analyzeExtension.swift in Sources */,
 				0A20FE321E7378490070A48F /* ParsingObject.swift in Sources */,
