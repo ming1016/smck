@@ -22,7 +22,7 @@ class H5Lexer {
         
         var newStr = ""
         //去掉头部和注释
-        let annotationPattern = "<!.*?>" //匹配/*...*/这样的注释
+        let annotationPattern = "<!.*?>" //匹配<!>这样的注释
         let regex = try! NSRegularExpression(pattern: annotationPattern, options: NSRegularExpression.Options(rawValue:0))
         
         newStr = regex.stringByReplacingMatches(in: str, options: NSRegularExpression.MatchingOptions(rawValue:0), range: NSMakeRange(0, str.characters.count), withTemplate: H5Sb.space)

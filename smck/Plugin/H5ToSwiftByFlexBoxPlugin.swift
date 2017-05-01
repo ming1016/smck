@@ -74,7 +74,8 @@ class H5ToSwiftByFlexBoxPlugin {
     let ptValueMap = [
         "black":".black",
         "red":".red",
-        "white":".white"
+        "white":".white",
+        "orange":".orange"
     ]
     
     init(path:String) {
