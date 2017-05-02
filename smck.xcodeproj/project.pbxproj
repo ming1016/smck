@@ -190,6 +190,10 @@
 		0A20FE451E73796B0070A48F /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A20FE431E73796B0070A48F /* Checker.swift */; };
 		0A21E54D1EA0C54400C1F53D /* SMLangParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21E54C1EA0C54400C1F53D /* SMLangParser.swift */; };
 		0A22FE0E1E9D01C4003B56B9 /* SMLangLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A22FE0D1E9D01C4003B56B9 /* SMLangLexer.swift */; };
+		0A2A39CE1EB870BD006AACB6 /* JSSb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A39CD1EB870BD006AACB6 /* JSSb.swift */; };
+		0A2A39D01EB871EE006AACB6 /* JSLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A39CF1EB871EE006AACB6 /* JSLexer.swift */; };
+		0A2A39D21EB871FB006AACB6 /* JSAST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A39D11EB871FB006AACB6 /* JSAST.swift */; };
+		0A2A39D41EB87209006AACB6 /* JSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A39D31EB87209006AACB6 /* JSParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -389,6 +393,10 @@
 		0A20FE431E73796B0070A48F /* Checker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		0A21E54C1EA0C54400C1F53D /* SMLangParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLangParser.swift; sourceTree = "<group>"; };
 		0A22FE0D1E9D01C4003B56B9 /* SMLangLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLangLexer.swift; sourceTree = "<group>"; };
+		0A2A39CD1EB870BD006AACB6 /* JSSb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSb.swift; sourceTree = "<group>"; };
+		0A2A39CF1EB871EE006AACB6 /* JSLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSLexer.swift; sourceTree = "<group>"; };
+		0A2A39D11EB871FB006AACB6 /* JSAST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSAST.swift; sourceTree = "<group>"; };
+		0A2A39D31EB87209006AACB6 /* JSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +421,10 @@
 				0A1AF86C1EA7087900F83176 /* CSSLexer.swift */,
 				0A1AF86E1EA7088B00F83176 /* CSSAST.swift */,
 				0A1AF8701EA708BD00F83176 /* CSSParser.swift */,
+				0A2A39CD1EB870BD006AACB6 /* JSSb.swift */,
+				0A2A39CF1EB871EE006AACB6 /* JSLexer.swift */,
+				0A2A39D11EB871FB006AACB6 /* JSAST.swift */,
+				0A2A39D31EB87209006AACB6 /* JSParser.swift */,
 			);
 			name = H5;
 			sourceTree = "<group>";
@@ -752,6 +764,7 @@
 				0A20FDB21E73777D0070A48F /* Filter.swift in Sources */,
 				0A1AF8711EA708BD00F83176 /* CSSParser.swift in Sources */,
 				0A20FE331E7378490070A48F /* ParsingFirstRoundOneFile.swift in Sources */,
+				0A2A39D41EB87209006AACB6 /* JSParser.swift in Sources */,
 				0A20FD961E73777D0070A48F /* CombineLatest+arity.swift in Sources */,
 				0A20FDB41E73777D0070A48F /* GroupBy.swift in Sources */,
 				0A20FDE61E73777E0070A48F /* Repeat.swift in Sources */,
@@ -850,6 +863,7 @@
 				0A20FDDE1E73777E0070A48F /* Queue.swift in Sources */,
 				0A20FDF21E73777E0070A48F /* Sequence.swift in Sources */,
 				0A20FDD81E73777E0070A48F /* Optional.swift in Sources */,
+				0A2A39CE1EB870BD006AACB6 /* JSSb.swift in Sources */,
 				0A20FD9E1E73777D0070A48F /* CurrentThreadScheduler.swift in Sources */,
 				0A20FD9D1E73777D0070A48F /* ConnectableObservableType.swift in Sources */,
 				0A20FDC71E73777E0070A48F /* Observable+Aggregate.swift in Sources */,
@@ -873,6 +887,7 @@
 				0A20FDB91E73777D0070A48F /* ImmediateSchedulerType.swift in Sources */,
 				0A20FDA41E73777D0070A48F /* DelaySubscription.swift in Sources */,
 				0A20FDC41E73777E0070A48F /* Never.swift in Sources */,
+				0A2A39D21EB871FB006AACB6 /* JSAST.swift in Sources */,
 				0A20FDAD1E73777D0070A48F /* ElementAt.swift in Sources */,
 				0A20FE401E7379410070A48F /* SeekFolderFiles.swift in Sources */,
 				0A20FDC61E73777E0070A48F /* Observable.swift in Sources */,
@@ -905,6 +920,7 @@
 				0A20FDD91E73777E0070A48F /* Platform.Darwin.swift in Sources */,
 				0A20FDCE1E73777E0070A48F /* Observable+StandardSequenceOperators.swift in Sources */,
 				0A20FE171E73777E0070A48F /* Zip.swift in Sources */,
+				0A2A39D01EB871EE006AACB6 /* JSLexer.swift in Sources */,
 				0A20FE191E73777E0070A48F /* Zip+Collection.swift in Sources */,
 				0A20FDF51E73777E0070A48F /* ShareReplay1.swift in Sources */,
 				0A20FDEB1E73777E0070A48F /* Sample.swift in Sources */,
