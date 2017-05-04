@@ -17,10 +17,21 @@ class H5Lexer {
     init(input: String) {
         //清理
         var str = input.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        str = str.replacingOccurrences(of: "\n", with: "")
+        let annotationBlockPattern = "/\\*[\\s\\S]*?\\*/" //匹配/*...*/这样的注释
+        let annotationLinePattern = "//.*?\\n" //匹配//这样的注释
+        
+        let regexBlock = try! NSRegularExpression(pattern: annotationBlockPattern, options: NSRegularExpression.Options(rawValue:0))
+        let regexLine = try! NSRegularExpression(pattern: annotationLinePattern, options: NSRegularExpression.Options(rawValue:0))
+        var anStr = ""
+        anStr = regexLine.stringByReplacingMatches(in: str, options: NSRegularExpression.MatchingOptions(rawValue:0), range: NSMakeRange(0, str.characters.count), withTemplate: Sb.space)
+        anStr = regexBlock.stringByReplacingMatches(in: anStr, options: NSRegularExpression.MatchingOptions(rawValue:0), range: NSMakeRange(0, anStr.characters.count), withTemplate: Sb.space)
+        
+        
+        str = anStr.replacingOccurrences(of: "\n", with: "")
         str = str.replacingOccurrences(of: "\t", with: "")
         
         var newStr = ""
+        /*-----------CSS----------*/
         //去掉头部和注释
         let annotationPattern = "<!.*?>" //匹配<!>这样的注释
         let regex = try! NSRegularExpression(pattern: annotationPattern, options: NSRegularExpression.Options(rawValue:0))
@@ -46,6 +57,22 @@ class H5Lexer {
         //print("\(cssTks)")
         
         self.cssFile = try! CSSParser(tokens: cssTks).parseFile()
+        
+        /*------------JS------------*/
+        //提取<script type="text/javascript"></script>里的内容
+        let jsPattern = "<script.*?>(.*?)</script>"
+        let jsRegex = try! NSRegularExpression(pattern: jsPattern, options: NSRegularExpression.Options(rawValue:0))
+        let jsMatches = jsRegex.matches(in: newStr, options: [], range: NSMakeRange(0,NSString(string: newStr).length))
+        var jsStr = ""
+        for jsRe in jsMatches {
+            jsStr.append(NSString(string: newStr).substring(with: jsRe.rangeAt(1)))
+        }
+        //替换空
+        newStr = jsRegex.stringByReplacingMatches(in: newStr, options: NSRegularExpression.MatchingOptions(rawValue:0), range: NSMakeRange(0, newStr.characters.count), withTemplate: " ")
+        
+        let jsTks = JSLexer(input: jsStr).lex()
+        print("\(jsTks)")
+        
         self.input = newStr
         self.index = newStr.startIndex
     }
