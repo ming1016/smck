@@ -10,7 +10,7 @@ import Foundation
 
 class SeekFolderFiles {
     
-    class func seekWith(_ folderPath:String, matchingExtension:[String] = ["m","h"]) -> [String] {
+    class func seekWith(_ folderPath:String, matchingExtension:[String] = ["m","h","mm"]) -> [String] {
         let fileFolderPath = folderPath
         let fileFolderStringPath = fileFolderPath.replacingOccurrences(of: "file://", with: "")
         let fileManager = FileManager.default;

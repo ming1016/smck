@@ -12,6 +12,7 @@ class ParsingObject {
     class func parsing(tokens:[String], file:File) -> Observable<Any> {
         return Observable.create({ (observer) -> Disposable in
             for tk in tokens {
+                //正常情况
                 guard let obj = file.importObjects[tk] else {
                     continue
                 }

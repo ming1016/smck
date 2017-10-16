@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class H5Lexer {
     let input: String
     var index: String.Index

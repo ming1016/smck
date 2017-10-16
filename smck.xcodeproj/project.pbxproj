@@ -194,6 +194,7 @@
 		0A2A39D01EB871EE006AACB6 /* JSLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A39CF1EB871EE006AACB6 /* JSLexer.swift */; };
 		0A2A39D21EB871FB006AACB6 /* JSAST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A39D11EB871FB006AACB6 /* JSAST.swift */; };
 		0A2A39D41EB87209006AACB6 /* JSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A39D31EB87209006AACB6 /* JSParser.swift */; };
+		0A34916F1F26067D000DEBAC /* H5ToNativePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34916E1F26067D000DEBAC /* H5ToNativePlugin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -397,6 +398,7 @@
 		0A2A39CF1EB871EE006AACB6 /* JSLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSLexer.swift; sourceTree = "<group>"; };
 		0A2A39D11EB871FB006AACB6 /* JSAST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSAST.swift; sourceTree = "<group>"; };
 		0A2A39D31EB87209006AACB6 /* JSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSParser.swift; sourceTree = "<group>"; };
+		0A34916E1F26067D000DEBAC /* H5ToNativePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5ToNativePlugin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -653,6 +655,7 @@
 		0A20FE351E7378510070A48F /* Plugin */ = {
 			isa = PBXGroup;
 			children = (
+				0A34916D1F26064E000DEBAC /* H5ToNativePlugin */,
 				0A20FE361E73786E0070A48F /* UnUseMethodPlugin.swift */,
 				0A20FE371E73786E0070A48F /* UnUseObjectPlugin.swift */,
 				0A1A46301EA8C3F2008AA951 /* H5ToSwiftByFlexBoxPlugin.swift */,
@@ -682,12 +685,21 @@
 		0A22FE0C1E9D014B003B56B9 /* analyze */ = {
 			isa = PBXGroup;
 			children = (
+				0ADD8F231F28B612000355D5 /* Objc */,
 				0A1C1FCE1EAA3F0F00CD994A /* OC */,
 				0A1B7BC81EA4774500F284A6 /* H5 */,
 				0A5A45DE1EA1FDC600229CE9 /* SMLang */,
 				0A1C4D0B1EA25DE800C40427 /* analyzeExtension.swift */,
 			);
 			name = analyze;
+			sourceTree = "<group>";
+		};
+		0A34916D1F26064E000DEBAC /* H5ToNativePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				0A34916E1F26067D000DEBAC /* H5ToNativePlugin.swift */,
+			);
+			name = H5ToNativePlugin;
 			sourceTree = "<group>";
 		};
 		0A5A45DE1EA1FDC600229CE9 /* SMLang */ = {
@@ -698,6 +710,13 @@
 				0A21E54C1EA0C54400C1F53D /* SMLangParser.swift */,
 			);
 			name = SMLang;
+			sourceTree = "<group>";
+		};
+		0ADD8F231F28B612000355D5 /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Objc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -822,6 +841,7 @@
 				0A22FE0E1E9D01C4003B56B9 /* SMLangLexer.swift in Sources */,
 				0A20FE311E7378490070A48F /* ParsingProtocol.swift in Sources */,
 				0A20FE391E73786E0070A48F /* UnUseObjectPlugin.swift in Sources */,
+				0A34916F1F26067D000DEBAC /* H5ToNativePlugin.swift in Sources */,
 				0A20FD951E73777D0070A48F /* CombineLatest.swift in Sources */,
 				0A20FDEA1E73777E0070A48F /* RxMutableBox.swift in Sources */,
 				0A20FE0C1E73777E0070A48F /* TakeWhile.swift in Sources */,

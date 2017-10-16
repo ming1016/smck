@@ -203,7 +203,7 @@ class ParsingBase {
             var result:NSString?
             result = nil
             if scanner.scanUpToCharacters(from: set, into: &result) {
-                tokens.append(result as! String)
+                tokens.append(result! as String)
             }
         }
         tokens = tokens.filter {
