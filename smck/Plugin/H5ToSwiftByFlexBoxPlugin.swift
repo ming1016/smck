@@ -9,8 +9,8 @@
 import Foundation
 
 class H5ToSwiftByFlexBoxPlugin {
-    let path: String
-    let pathUrl: URL
+//    let path: String
+//    let pathUrl: URL
     var index = 0
     var propertys = ""
     let H5file: H5File
@@ -79,9 +79,89 @@ class H5ToSwiftByFlexBoxPlugin {
     ]
     
     init(path:String) {
-        self.path = path
-        self.pathUrl = URL(string: "file://".appending(path))!
-        let content = try! String(contentsOf: pathUrl, encoding: String.Encoding.utf8)
+//        self.path = path
+//        self.pathUrl = URL(string: "file://".appending(path))!
+//        let content = try! String(contentsOf: pathUrl, encoding: String.Encoding.utf8)
+        let content = """
+<!doctype html>
+<html>
+
+<head>
+  <meta charset=\"UTF-8\" />
+  <title>FlexboxViewController</title>
+  <script src=\"vue.js\"></script>
+  <script src=\"axios.min.js\"></script>
+  <script src=\"lodash.min.js\"></script>
+  <script src=\"currency-validator.js\"></script>
+  <style>
+    #six {
+      flex-grow: 0;
+      flex-basis: 120pt;
+      align-self: flex-end;
+    }
+    .big {
+      width: 120pt; height: 200pt; background-color: black; margin: 10pt; color: white;
+    }
+    .small {
+      width: 100pt;
+      height: 40pt;
+      background-color: orange;
+      margin: 10pt;
+      color: white;
+      display: flex;
+      flex-direction: row;
+    }
+    .tinyBox {
+      width: 10pt; height: 10pt; background-color: red; margin: 5pt;
+    }
+    #main {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: center;
+      align-content: flex-start;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      list-style-type: none;
+      align-items: center;
+      flex-wrap: wrap;
+      -webkit-padding-start: 0pt;
+    }
+  </style>
+</head>
+<body>
+  <div id=\"main\">
+    <div class=\"big\" id=\"smallbox\">
+      <p class=\"small\"></p>
+    </div>
+    <ul class=\"big\">
+      <li class=\"tinyBox\"></li>
+      <li class=\"tinyBox\"></li>
+      <li class=\"tinyBox\"></li>
+    </ul>
+    <ul class=\"big\" id=\"more\">
+      <li class=\"small\">
+        <div class=\"tinyBox\"></div>
+        <div class=\"tinyBox\"></div>
+        <div class=\"tinyBox\"></div>
+        <div class=\"tinyBox\"></div>
+        <div class=\"tinyBox\"></div>
+      </li>
+      <li class=\"small\"></li>
+      <li class=\"small\"></li>
+    </ul>
+    <div class=\"big\" id=\"six\"></div>
+    <div class=\"big\"></div>
+    <div class=\"big\"></div>
+  </div>
+</body>
+</html>
+"""
         let h5Lexer = H5Lexer(input: content)
         let tks = h5Lexer.lex()
         self.H5file = try! H5Parser(tokens: tks).parseFile()
@@ -122,11 +202,12 @@ class H5ToSwiftByFlexBoxPlugin {
         swiftStr.append("}\n")
         swiftStr.append("}\n")
         
-        do {
-            try swiftStr.write(to: URL(string: "file://\(path).swift")!, atomically: false, encoding: String.Encoding.utf8)
-        } catch {
-            
-        }
+        print("\(swiftStr)")
+//        do {
+//            try swiftStr.write(to: URL(string: "file://\(path).swift")!, atomically: false, encoding: String.Encoding.utf8)
+//        } catch {
+//
+//        }
         
     }
     
