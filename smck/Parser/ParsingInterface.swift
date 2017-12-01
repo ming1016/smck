@@ -39,6 +39,11 @@ class ParsingInterface {
                 inSuperNameTf = false
             } else if inCategoryTf && tk != Sb.rBktR && !inProtocolTf {
                 inObject.category = tk
+            } else if inCategoryTf && tk == Sb.rBktR {
+                if inObject.category.isEmpty {
+                    inObject.category = "void"
+                }
+                inCategoryTf = false
             } else if tk == Sb.agBktL && !inProtocolTf {
                 inProtocolTf = true
             } else if tk != Sb.comma && tk != Sb.agBktR && inProtocolTf {
