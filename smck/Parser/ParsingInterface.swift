@@ -40,10 +40,13 @@ class ParsingInterface {
             } else if inCategoryTf && tk != Sb.rBktR && !inProtocolTf {
                 inObject.category = tk
             } else if inCategoryTf && tk == Sb.rBktR {
+                // 检测到右括号说明 Category 检测完毕
+                inCategoryTf = false
+                
                 if inObject.category.isEmpty {
+                    // 为 Extension 添加 void 与 Category 区分开
                     inObject.category = "void"
                 }
-                inCategoryTf = false
             } else if tk == Sb.agBktL && !inProtocolTf {
                 inProtocolTf = true
             } else if tk != Sb.comma && tk != Sb.agBktR && inProtocolTf {
